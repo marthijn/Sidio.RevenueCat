@@ -1,5 +1,4 @@
-﻿using Essentia.Web.RevenueCat.Api.V1.Responses;
-using RestSharp;
+﻿using RestSharp;
 using Sidio.RevenueCat.Api.V1.Responses;
 
 namespace Sidio.RevenueCat.Api.V1;

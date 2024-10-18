@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 using System.Text.Json;
-using Essentia.Web.RevenueCat.Api.V1.Responses;
+using Sidio.RevenueCat.Api.V1.Responses;
 
 namespace Sidio.RevenueCat.Tests.Api.V1.Responses;
 

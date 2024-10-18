@@ -1,9 +1,9 @@
 ﻿using System.Net;
 using System.Text.Json;
-using Essentia.Web.RevenueCat.Api.V1.Responses;
 using RestSharp;
 using RestSharp.Serializers;
 using Sidio.RevenueCat.Api.V1;
+using Sidio.RevenueCat.Api.V1.Responses;
 
 namespace Sidio.RevenueCat.Tests.Api.V1;
 

@@ -1,8 +1,6 @@
-﻿using Sidio.RevenueCat.Api.V1.Responses;
+﻿using System.Text.Json.Serialization;
 
-namespace Essentia.Web.RevenueCat.Api.V1.Responses;
-
-using System.Text.Json.Serialization;
+namespace Sidio.RevenueCat.Api.V1.Responses;
 
 public sealed class SubscriberResponse : ResponseBase
 {
