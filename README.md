@@ -14,7 +14,7 @@ This package is currently in preview and is not yet feature complete.
 ## Webhooks
 * Capture the raw JSON and use the `IRevenueCatWebhookService` to parse the webhook data:
 ```csharp
-private readonly IRevenueCatWebhookService _webhookService;
+private readonly IRevenueCatWebhookService _webhookService = new RevenueCatWebhookService();
 
-var parseResult = _webhookService.TryParseSubscriptionEvent(request.Message.RawJson, out var subscriptionEvent);
+var parseResult = _webhookService.TryParseSubscriptionEvent(rawJson, out var subscriptionEvent);
 ```
