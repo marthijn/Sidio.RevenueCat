@@ -8,4 +8,13 @@ An unofficial .NET SDK for the RevenueCat API and webhooks. This library is not 
 Add [the package](https://www.nuget.org/packages/Sidio.RevenueCat/) to your project.
 
 # Project status
-This package is currently in preview mode and is not yet feature complete.
+This package is currently in preview and is not yet feature complete.
+
+# Usage
+## Webhooks
+* Capture the raw JSON and use the `IRevenueCatWebhookService` to parse the webhook data:
+```csharp
+private readonly IRevenueCatWebhookService _webhookService;
+
+var parseResult = _webhookService.TryParseSubscriptionEvent(request.Message.RawJson, out var subscriptionEvent);
+```
