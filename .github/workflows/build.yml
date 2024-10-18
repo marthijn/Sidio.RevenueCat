@@ -1,0 +1,48 @@
+name: build
+
+on:
+  workflow_dispatch:
+  push:
+      branches:
+      - main
+  pull_request:
+    branches:
+      - '*'
+
+env:
+  DOTNET_NOLOGO: true
+
+jobs:
+  build:
+
+    runs-on: ubuntu-22.04
+
+    strategy:
+      matrix:
+        dotnet-version: [ '8.0.x' ]
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ matrix.dotnet-version }}
+      - name: Install dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --configuration Release
+      - name: Test with dotnet
+        run: dotnet test --configuration Release
+          /p:CollectCoverage=true
+          /p:CoverletOutputFormat="\"cobertura,json\""
+          /p:CoverletOutput=coverage/
+          /p:IncludeTestAssembly=false
+      - name: Upload dotnet test results
+        uses: coverallsapp/github-action@v2.3.1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          files: ${{ github.workspace }}/src/Sidio.OpenGraph.Tests/coverage/coverage.net8.0.cobertura.xml ${{ github.workspace }}/src/Sidio.OpenGraph.Tests/coverage/coverage.net481.cobertura.xml ${{ github.workspace }}/src/Sidio.OpenGraph.AspNetCore.Tests/coverage/coverage.cobertura.xml
+          format: cobertura
+          base-path: ${{ github.workspace }}
+          debug: true
+        if: ${{ always() }}

@@ -1,0 +1,72 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+
+        <IsPackable>false</IsPackable>
+        <IsTestProject>true</IsTestProject>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AutoFixture" Version="4.18.1" />
+        <PackageReference Include="FluentAssertions" Version="6.12.1" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
+        <PackageReference Include="Moq" Version="4.20.72" />
+        <PackageReference Include="xunit" Version="2.9.2" />
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="coverlet.collector" Version="6.0.2">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Using Include="Xunit"/>
+        <Using Include="AutoFixture"/>
+        <Using Include="FluentAssertions"/>
+        <Using Include="Moq"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Webhooks\TestData\BillingIssue.json" />
+      <EmbeddedResource Include="Webhooks\TestData\BillingIssue.json" />
+      <None Remove="Webhooks\TestData\Cancellation.json" />
+      <EmbeddedResource Include="Webhooks\TestData\Cancellation.json" />
+      <None Remove="Webhooks\TestData\Expiration.json" />
+      <EmbeddedResource Include="Webhooks\TestData\Expiration.json" />
+      <None Remove="Webhooks\TestData\InitialPurchase.json" />
+      <EmbeddedResource Include="Webhooks\TestData\InitialPurchase.json" />
+      <None Remove="Webhooks\TestData\NonRenewingPurchase.json" />
+      <EmbeddedResource Include="Webhooks\TestData\NonRenewingPurchase.json" />
+      <None Remove="Webhooks\TestData\ProductChange.json" />
+      <EmbeddedResource Include="Webhooks\TestData\ProductChange.json" />
+      <None Remove="Webhooks\TestData\Refund.json" />
+      <EmbeddedResource Include="Webhooks\TestData\Refund.json" />
+      <None Remove="Webhooks\TestData\Renewal.json" />
+      <EmbeddedResource Include="Webhooks\TestData\Renewal.json" />
+      <None Remove="Webhooks\TestData\SubscriptionExtended.json" />
+      <EmbeddedResource Include="Webhooks\TestData\SubscriptionExtended.json" />
+      <None Remove="Webhooks\TestData\SubscriptionPaused.json" />
+      <EmbeddedResource Include="Webhooks\TestData\SubscriptionPaused.json" />
+      <None Remove="Webhooks\TestData\Transfer.json" />
+      <EmbeddedResource Include="Webhooks\TestData\Transfer.json" />
+      <None Remove="Webhooks\TestData\TrialCancelled.json" />
+      <EmbeddedResource Include="Webhooks\TestData\TrialCancelled.json" />
+      <None Remove="Webhooks\TestData\TrialStarted.json" />
+      <EmbeddedResource Include="Webhooks\TestData\TrialStarted.json" />
+      <None Remove="Webhooks\TestData\Uncancellation.json" />
+      <EmbeddedResource Include="Webhooks\TestData\Uncancellation.json" />
+      <None Remove="Api\V1\Responses\TestData\SubscriberResponse.json" />
+      <EmbeddedResource Include="Api\V1\Responses\TestData\SubscriberResponse.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Sidio.RevenueCat\Sidio.RevenueCat.csproj" />
+    </ItemGroup>
+
+</Project>
