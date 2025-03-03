@@ -10,7 +10,7 @@ public sealed class RevenueCatV2ClientTests
     private static RevenueCatV2Client CreateClient(out Mock<IRestClient> restClientMock)
     {
         restClientMock = new Mock<IRestClient>();
-        var client = new RevenueCatV2Client(restClientMock.Object);
+        var client = RevenueCatV2Client.Create(restClientMock.Object);
         return client;
     }
 }

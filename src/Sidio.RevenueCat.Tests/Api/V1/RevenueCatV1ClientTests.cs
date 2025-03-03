@@ -39,7 +39,7 @@ public sealed class RevenueCatV1ClientTests
         restClientMock = new Mock<IRestClient>();
         restClientMock.Setup(x => x.Serializers).Returns(new RestSerializers(config));
 
-        var client = new RevenueCatV1Client(restClientMock.Object);
+        var client = RevenueCatV1Client.Create(restClientMock.Object);
         return client;
     }
 }
