@@ -10,17 +10,19 @@ updates:
     schedule:
       interval: "weekly"
     groups:
-      microsoft:
-        patterns:
-          - "Microsoft*"
       tests:
         patterns:
           - "AutoFixture"
-          - "FluentAssertions"
+          - "AwesomeAssertions"
           - "xunit*"
           - "*Test*"
           - "coverlet*"
+          - "Moq"
+          - "RichardSzalay.MockHttp"
+      microsoft:
+        patterns:
+          - "Microsoft*"
   - package-ecosystem: "github-actions" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
-      interval: "weekly"
+      interval: "monthly"
